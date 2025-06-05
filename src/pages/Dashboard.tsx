@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { FiUpload, FiFileText } from 'react-icons/fi';
+import { FiUpload } from 'react-icons/fi';
 // import { clearAuthData } from '../utils/auth'; // Removed if not used
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { invoiceValidationSchema } from './Dashboard.validation';
@@ -55,16 +55,7 @@ const FormInput = styled.input`
   }
 `;
 
-const FormRow = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-`;
+
 
 const FormSelect = styled.select`
   width: 100%;
@@ -97,36 +88,7 @@ const FormSelect = styled.select`
   }
 `;
 
-const Button = styled.button<{ $variant?: 'primary' | 'secondary' }>`
-  padding: 0.75rem 1.5rem;
-  border-radius: 24px;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  
-  ${({ $variant = 'primary' }) => 
-    $variant === 'primary' 
-      ? `
-        background-color: #7C5DFA;
-        color: white;
-        border: none;
-        
-        &:hover {
-          background-color: #9277FF;
-        }
-      `
-      : `
-        background-color: #f8f8fb;
-        color: #7E88C3;
-        border: 1px solid #DFE3FA;
-        
-        &:hover {
-          border-color: #7E88C3;
-        }
-      `
-  }
-`;
+
 
 // --- End styled-components ---
 

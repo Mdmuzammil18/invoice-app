@@ -35,7 +35,7 @@ export const invoiceValidationSchema = Yup.object().shape({
     .required('Line Amount is required')
     .test('lineAmountMax', 'Line Amount cannot exceed Total Amount', function (value) {
       const { totalAmount } = this.parent;
-      return !totalAmount || !value || parseFloat(value) <= parseFloat(totalAmount);
+      return !totalAmount || !value || Number(value) <= Number(totalAmount);
     }),
   department: Yup.string().required('Department is required'),
   account: Yup.string().required('Account is required'),

@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import type { Invoice, InvoiceFormValues } from '../types/invoice';
-import { defaultInvoice, generateId, calculateInvoiceTotals } from '../types/invoice';
+import type { Invoice } from '../types/invoice';
+import { generateId, calculateInvoiceTotals } from '../types/invoice';
 
 interface InvoiceContextType {
   invoices: Invoice[];

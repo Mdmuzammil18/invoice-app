@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { clearAuthData } from '../components/ProtectedRoute';
 import { FiUpload } from 'react-icons/fi';
 // import { clearAuthData } from '../utils/auth'; // Removed if not used
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -335,6 +336,9 @@ const Dashboard: React.FC = () => {
               <svg width="20" height="20" fill="none" stroke="#222b45" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             </BackArrow>
             <HeaderTitle>Create New Invoice</HeaderTitle>
+            <LogoutButton type="button" onClick={() => { clearAuthData(); navigate('/login'); }}>
+              Logout
+            </LogoutButton>
           </HeaderRow>
           <TabsRow>
             <TabButton $active={activeTab === 'vendor'} onClick={() => handleTabClick('vendor')}>Vendor Details</TabButton>
@@ -651,6 +655,23 @@ const SubmitButton = styled.button`
   padding: 0.7rem 0;
   font-weight: 600;
   cursor: pointer;
+`;
+
+const LogoutButton = styled.button`
+  margin-left: auto;
+  background: #fff;
+  color: #e53935;
+  border: 1px solid #e53935;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    background: #e53935;
+    color: #fff;
+  }
 `;
 
 export default Dashboard;
